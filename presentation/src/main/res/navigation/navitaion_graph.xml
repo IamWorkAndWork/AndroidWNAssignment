@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navitaion_graph"
+    app:startDestination="@id/coinRankingFragment">
+
+
+    <fragment
+        android:id="@+id/coinRankingFragment"
+        android:name="com.example.presentation.ui.coinranking.CoinRankingFragment"
+        android:label="coin_ranking_fragment"
+        tools:layout="@layout/coin_ranking_fragment" />
+</navigation>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="text_search">ค้นหา</string>
+    <string name="text_no_results">ไม่พบข้อมูล</string>
+</resources>
