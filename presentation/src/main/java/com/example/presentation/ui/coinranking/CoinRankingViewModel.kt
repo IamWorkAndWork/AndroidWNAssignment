@@ -39,10 +39,9 @@ class CoinRankingViewModel(
                     null
                 }
             }
-        }
-            .cachedIn(viewModelScope)
+        }.cachedIn(viewModelScope)
 
-//        currentSearchResult = result
+        currentSearchResult = result
 
         return result
 

@@ -24,7 +24,7 @@ class CoinPagingSource(
 
             when (query.isEmpty()) {
                 true -> getCoinsByDefault(params = params)
-                false -> getCoinsByFilter(query = query, params = params)
+                false -> getCoinsByFilter(query = query)
             }
 
         } catch (exception: IOException) {
@@ -36,7 +36,7 @@ class CoinPagingSource(
     }
 
     private suspend fun getCoinsByFilter(
-        query: String, params: LoadParams<Int>
+        query: String
     ): LoadResult.Page<Int, CoinEntity> {
 
         val coinList = mutableListOf<CoinEntity>()

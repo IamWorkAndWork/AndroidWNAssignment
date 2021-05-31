@@ -51,7 +51,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout"
                 app:layout_constraintVertical_bias="1.0"
-                app:shimmer_recycler_item_count="5"
+                app:shimmer_recycler_item_count="10"
                 app:shimmer_recycler_layout="@layout/placeholder_row_layout"
                 tools:listitem="@layout/item_coin_default" />
 
@@ -59,7 +59,6 @@
                 android:id="@+id/noDataTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:drawableRight="@drawable/ic_baseline_sentiment_very_dissatisfied"
                 android:gravity="center"
                 android:text="@string/text_no_results"
                 android:textSize="@dimen/text_description_size"
@@ -68,7 +67,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                app:drawableRightCompat="@drawable/ic_baseline_sentiment_very_dissatisfied" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
