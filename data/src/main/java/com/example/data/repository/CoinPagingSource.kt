@@ -46,10 +46,10 @@ class CoinPagingSource(
         val coinsBySlugs = coinRemoteDataSource.getCoinsBySlugs(slugs = query)
         val coinsByIds = coinRemoteDataSource.getCoinsByIds(ids = query)
 
+        coinList.addAll(coinsByIds)
+        coinList.addAll(coinsBySlugs)
         coinList.addAll(coinsByPrefix)
         coinList.addAll(coinsBySymbols)
-        coinList.addAll(coinsBySlugs)
-        coinList.addAll(coinsByIds)
 
         return LoadResult.Page(
             data = coinList,

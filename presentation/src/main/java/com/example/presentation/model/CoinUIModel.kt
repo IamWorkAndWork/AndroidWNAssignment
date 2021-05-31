@@ -21,4 +21,11 @@ sealed class CoinUIModel {
         override var iconDrawableRes: Int
     ) : CoinUIModel()
 
+    data class SeperatorItem(
+        override var id: Int = -1,
+        override var name: String = "",
+        override var description: String = "",
+        override var iconDrawableRes: Int = 0
+    ) : CoinUIModel()
+
 }

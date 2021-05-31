@@ -31,6 +31,9 @@ class CoinRankingAdapter(private val clickedItemListener: (CoinUIModel) -> Unit)
             is CoinUIModel.RightItem -> {
                 R.layout.item_coin_right
             }
+            is CoinUIModel.SeperatorItem -> {
+                R.layout.item_seperator
+            }
             null -> throw UnsupportedOperationException("Unknown view")
         }
     }
@@ -40,8 +43,11 @@ class CoinRankingAdapter(private val clickedItemListener: (CoinUIModel) -> Unit)
             R.layout.item_coin_default -> {
                 CoinItemDefaultViewHolder.create(parent = parent)
             }
-            else -> {
+            R.layout.item_coin_right -> {
                 CoinItemRightViewHolder.create(parent = parent)
+            }
+            else -> {
+                CoinItemSeperatorViewHolder.create(parent = parent)
             }
         }
     }
@@ -60,6 +66,7 @@ class CoinRankingAdapter(private val clickedItemListener: (CoinUIModel) -> Unit)
                     model,
                     clickedItemListener
                 )
+                is CoinUIModel.SeperatorItem->(holder as CoinItemSeperatorViewHolder).bind(model)
             }
 
         }

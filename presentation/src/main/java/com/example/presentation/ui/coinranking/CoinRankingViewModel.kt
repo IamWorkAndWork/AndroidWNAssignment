@@ -2,9 +2,7 @@ package com.example.presentation.ui.coinranking
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
-import androidx.paging.map
+import androidx.paging.*
 import com.example.domain.usecase.GetCoinsPagingDataUseCase
 import com.example.presentation.mapper.CoinUIModelMapper
 import com.example.presentation.model.CoinUIModel
@@ -27,16 +25,24 @@ class CoinRankingViewModel(
         }
 
         currentQueryValue = query
-
+        var index = 0
         val result = getCoinsPagingDataUseCase.execute(query = query).map { pagingData ->
-            var index = 0
             pagingData.map { coin ->
                 index++
                 coinUIModelMapper.transform(coinEntity = coin, index = index)
             }
-        }.cachedIn(viewModelScope)
+        }.map {
+            it.insertSeparators { before: CoinUIModel?, after: CoinUIModel? ->
+                if (after == null && index != 0) {
+                    return@insertSeparators CoinUIModel.SeperatorItem()
+                } else {
+                    null
+                }
+            }
+        }
+            .cachedIn(viewModelScope)
 
-        currentSearchResult = result
+//        currentSearchResult = result
 
         return result
 

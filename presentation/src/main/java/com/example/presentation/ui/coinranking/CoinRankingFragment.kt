@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.presentation.R
 import com.example.presentation.databinding.CoinRankingFragmentBinding
 import com.example.presentation.model.CoinUIModel
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -149,12 +150,18 @@ class CoinRankingFragment : Fragment() {
     private val clickedItemListener: ((CoinUIModel) -> Unit) = { model ->
         when (model) {
             is CoinUIModel.DefaultItem -> {
-                Toast.makeText(requireContext(), "Clicked at ${model.name}", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(
+                    requireContext(),
+                    String.format(getString(R.string.text_toast_clicked), model.name),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
             is CoinUIModel.RightItem -> {
-                Toast.makeText(requireContext(), "Clicked at ${model.name}", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(
+                    requireContext(),
+                    String.format(getString(R.string.text_toast_clicked), model.name),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
